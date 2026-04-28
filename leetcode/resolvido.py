@@ -9,7 +9,7 @@ def title(txt):
     print(txt.center(len(line)))
     print(line)
 
-def CiarConta():
+def CriarConta():
     x = input('Nome de usuário: ')
     if x in BancoDeDados:
         print('Esse nome de usuário já existe!')
@@ -59,7 +59,7 @@ while True:
     response = menu(options)
     match response:
         case 1:
-            CiarConta()
+            CriarConta()
         case 2:
             Login()
         case 3:
