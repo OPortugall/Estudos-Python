@@ -2,7 +2,25 @@ from rich.panel import Panel
 from rich import print 
 
 class Churrasco:
-    
+    """
+
+    Outro jeito de fazer o calculo:
+
+    consumo_padrao = 0.400
+    preco_kg = 82.40
+
+    def calcular_qtd_carne(self):
+        return self.quant * Churrasco.consumo.padrao
+    def calcular_custo_total(self):
+        return self.calcular_qtd_carne() * self.__clas__.preco_kg
+
+    def calcular_custo_individual(self):
+        return calcular_custo_total() / self.quant
+
+    ficaria: conteudo += f'Recomendo comprar {self.calcular_qtd_carne():.2f}kg de carne'
+    """
+
+
     def __init__(self, titulo, quantidade):
         self.titulo = titulo 
         self.quant = quantidade 
