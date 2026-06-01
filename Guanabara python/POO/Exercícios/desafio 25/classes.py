@@ -10,11 +10,7 @@ class Transporte(ABC):
     @abstractmethod
     def calc_frete(self):
         pass
-
-    @abstractmethod
-    def painel(self):
-        pass
-
+    
     def painel(self, conteudo):
         frete = Panel(conteudo, title = '[blue] --- Calculando Frete --- [/]', width = 50)
         return frete 
@@ -22,6 +18,7 @@ class Transporte(ABC):
     def proibido(self, proibido):
         proibicao = Panel(proibido, title = '[red] --- Erro na distância --- [/]', width = 55)
         return proibicao
+    
     
 class Moto(Transporte):
     fator = 0.50
