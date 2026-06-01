@@ -20,9 +20,13 @@ class Personagem(ABC):
         fator = random.randint(0, dano)
         self.vida -= fator
 
-        if self.vida < 0:
-            self.vida = 0
-        print(f'[blue]{self.nome}[/] recebeu dano de [red]{fator}[/]!')
+        if not self.esta_vivo():
+            print(f'[red]{self.nome} foi obliterado deste mundo![/]')
+        else:
+            print(f'[blue]{self.nome}[/] recebeu dano de [red]{fator}[/]!')
+        
+    def esta_vivo(self):
+        return self.vida > 0
 
     @abstractmethod
     def curar(self):
@@ -36,9 +40,12 @@ class Guerreiro(Personagem):
         self.golpes = ['Soco', 'Golpe do Machado', 'Pulo Giratório']
 
     def curar(self):
-        fator = random.randint(0, 100)
-        self.vida += fator
-        print(f'[blue]{self.nome}[/] enrolou uma atadura nos ferimentos e recuperou [green]{fator}[/] pontos de vida.')
+        if self.esta_vivo():
+            fator = random.randint(0, 100)
+            self.vida += fator
+            print(f'[blue]{self.nome}[/] enrolou uma atadura nos ferimentos e recuperou [green]{fator}[/] pontos de vida.')
+        else: 
+            print(f'[red]{self.nome} está morto e não pode se curar[/]')
 
 class Mago(Personagem):
 
@@ -47,7 +54,10 @@ class Mago(Personagem):
         self.golpes = ['Bola de Fogo', 'Raio de Luz', 'Magia Estática']
 
     def curar(self):
-        fator = random.randint(0, 300)
-        self.vida += fator
-        print(f'[blue]{self.nome}[/] fez uma magia de cura e recuperou [green]{fator}[/] pontos de vida.')
+        if self.esta_vivo():
+            fator = random.randint(0, 300)
+            self.vida += fator
+            print(f'[blue]{self.nome}[/] fez uma magia de cura e recuperou [green]{fator}[/] pontos de vida.')
+        else:
+            print(f'[red]{self.nome} está morto e não pode se curar[/]')
 
