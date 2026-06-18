@@ -11,9 +11,7 @@ class Credencial:
 
     @senha.setter
     def senha(self, valor):
-        texto_bytes = valor.encode('utf-8')
-        hash_gerado = hashlib.sha256(texto_bytes)
-        self.__hash = hash_gerado.hexdigest()
+        self.__hash = hashlib.sha256(valor.encode('utf-8')).hexdigest()
 
     def validar(self, chave):
         chave_hash = hashlib.sha256(chave.encode('utf-8')).hexdigest()
